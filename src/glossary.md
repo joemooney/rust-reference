@@ -30,6 +30,10 @@ items are defined in [implementations] and declared in [traits]. Only
 functions, constants, and type aliases can be associated. Contrast to a [free
 item].
 
+### Associated function
+
+Similar to a static function of a class in C++, an associated function operates at the level of the struct type and not an instance of the type. You call an associated function via TypeName::func_name.
+
 ### Blanket implementation
 
 Any implementation where a type appears [uncovered](#uncovered-type). `impl<T> Foo
@@ -123,6 +127,10 @@ This is not affected by applied type arguments. `struct Foo` is considered local
 `Vec<Foo>` is not. `LocalType<ForeignType>` is local. Type aliases do not 
 affect locality.
 
+### mpsc
+
+Multiple-producer single-channel, std::sync::mpsc library FIFO queue communication primitives.
+
 ### Nominal types
 
 Types that can be referred to by a path directly. Specifically [enums],
@@ -133,8 +141,13 @@ Types that can be referred to by a path directly. Specifically [enums],
 [Traits] that can be used as [trait objects]. Only traits that follow specific
 [rules][object safety] are object safe.
 
-### Prelude
+### Poisoned State
+A mutex is in a poisoned state if another thread panicked while holding the lock on the mutex and did not release it.
 
+### Raw Idenifier
+Use r#keyword instead of keyword anywhere you want to use a reserved keyword as the name of an identifier.
+
+### Prelude
 Prelude, or The Rust Prelude, is a small collection of items - mostly traits - that are
 imported into every module of every crate. The traits in the prelude are pervasive.
 
